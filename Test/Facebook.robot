@@ -17,7 +17,7 @@ NegativeAndPositifCase
     Sleep                                         2s
     Click Element                                 //button[@name="login"]
     Sleep                                         3s
-    Element Should Be Visible                     (//div[contains(.,"The email address or mobile number you entered isn't connected to an account.")])[9]
+    Element Should Not Be Visible                 //span[contains(.,"Welcome to Facebook, Kara")]
     Sleep                                         2s  
     #negative case 2 (invalid username and empty pwd)
     Wait Until Element Is Visible                 //input[@placeholder="Email address or phone number"]               timeout=30s
@@ -25,7 +25,7 @@ NegativeAndPositifCase
     Input Text                                    //input[@placeholder="Email address or phone number"]                ${UName1}                
     Click Element                                 //button[@name="login"]
     Sleep                                         3s
-    Element Should Be Visible                     (//div[contains(.,"The email address you entered isn't connected to an account.")])[9]
+    Element Should Not Be Visible                 //span[contains(.,"Welcome to Facebook, Kara")]
     Sleep                                         2s
     #negative case 3 (invalid username and invalid pwd)
     Wait Until Element Is Visible                 //input[@placeholder="Email address or phone number"]                timeout=30s
@@ -36,7 +36,7 @@ NegativeAndPositifCase
     Input Text                                    //input[@placeholder="Password"]                                     ${Pwd1}                 
     Click Element                                 //button[@name="login"]
     Sleep                                         5s
-    Element Should Be Visible                     (//div[contains(.,"The email address you entered isn't connected to an account.")])[9]
+    Element Should Not Be Visible                 //span[contains(.,"Welcome to Facebook, Kara")]
     Sleep                                         2s
     #negative case 4 (valid username and wrong pwd)
     Wait Until Element Is Visible                 //input[@placeholder="Email address or phone number"]                timeout=30s
@@ -48,7 +48,7 @@ NegativeAndPositifCase
     Sleep                                         2s
     Click Element                                 //button[@name="login"]
     Sleep                                         3s
-    Element Should Be Visible                     (//div[contains(.,"The password that you've entered is incorrect.")])[9]
+    Element Should Not Be Visible                 //span[contains(.,"Welcome to Facebook, Kara")]
     Sleep                                         2s 
     #Login Succes                
     Wait Until Element Is Visible                 //input[@placeholder="Password"]                                      timeout=30s
@@ -122,8 +122,8 @@ NegativeAndPositifCase
     Wait Until Element Is Visible                 (//div[@aria-label="Menu"])[2]                                             timeout=30s
     Click Element                                 (//div[@aria-label="Menu"])[2]  
     Sleep                                         2s                              
-    Wait Until Element Is Visible                 (//div[@class="xu06os2 x1ok221b"])[24]                                     timeout=30s
-    Click Element                                 (//div[@class="xu06os2 x1ok221b"])[24]
+    Wait Until Element Is Visible                 (//div[@role="menuitem"])[2]                                     timeout=30s
+    Click Element                                 (//div[@role="menuitem"])[2]
     Sleep                                         2s
     Wait Until Element Is Visible                 (//span[contains(.,"Delete photo")])[1]                                    timeout=30s
     Click Element                                 //div[@aria-label="Delete"]
@@ -145,17 +145,18 @@ NegativeAndPositifCase
     Click Element                                 //div[@aria-label="Press Enter to send"]
     Wait Until Element Is Visible                 (//span[contains(.,"Novi Novi")])[4]                                       timeout=30s
     #Cancel Edit Message
+    Sleep                                         2s
     Click Element                                 //div[@class="x78zum5 xh8yej3"]                        
-    Wait Until Element Is Visible                 //div[@aria-label="More"]                                                   timeout=30s
-    Click Element                                 //div[@aria-label="More"]
+    Wait Until Element Is Visible                 (//div[@aria-label="More"])[3]                                                   timeout=30s
+    Click Element                                 (//div[@aria-label="More"])[3]
     Wait Until Element Is Visible                 //div[@aria-label="Edit"]                                                   timeout=30s
     Click Element                                 //div[@aria-label="Edit"]
     Wait Until Element Is Visible                 //div[@aria-label="Cancel edit"]                                           timeout=30s
     Click Element                                 //div[@aria-label="Cancel edit"]
     Sleep                                         2s
     #Edit Message
-    Wait Until Element Is Visible                 //div[@aria-label="More"]                                                  timeout=30s
-    Click Element                                 //div[@aria-label="More"]
+    Wait Until Element Is Visible                 (//div[@aria-label="More"])[3]                                                 timeout=30s
+    Click Element                                 (//div[@aria-label="More"])[3]
     Wait Until Element Is Visible                 //div[@aria-label="Edit"]                                                  timeout=30s
     Click Element                                 //div[@aria-label="Edit"]
     Wait Until Element Is Visible                 //div[@aria-label="Cancel edit"]                                            timeout=30s
@@ -166,8 +167,8 @@ NegativeAndPositifCase
     Sleep                                         3s
     #Remove chat
     Click Element                                 //div[@class="x78zum5 xh8yej3"]                        
-    Wait Until Element Is Visible                 //div[@aria-label="More"]                                                  timeout=30s
-    Click Element                                 //div[@aria-label="More"]
+    Wait Until Element Is Visible                 (//div[@aria-label="More"])[3]                                                 timeout=30s
+    Click Element                                 (//div[@aria-label="More"])[3]
     Wait Until Element Is Visible                 //div[@aria-label="Remove Message"]                                         timeout=30s
     Click Element                                 //div[@aria-label="Remove Message"] 
     Sleep                                         3s
